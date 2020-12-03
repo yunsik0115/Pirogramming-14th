@@ -26,14 +26,11 @@ class Services:
         print("=============선택된 백신 정보=============\n",
               vac_table.iloc[[vaccine - 1]])
         print("=============선택된 국가 정보=============\n"
-              , nation_table.iloc[[nation - 1]],
-              "\n============= 출력종료 =============")
-
-        nation_table.at[nation - 1, 1] = \
-            nation_table[nation - 1, 1] - {(nation_table[nation - 1, 1]) * (vac_table[vaccine - 1, 0]) * 0.01}
+              , nation_table.iloc[[nation - 1]])
+        nation_table.iloc[nation - 1, 1] *= (1 - vac_table.iloc[vaccine - 1, 0] * 0.01)
 
     def infection_increase(self, nation):
-        nation_table.at[nation-1, 1] += (nation_table.iloc[nation-1, 1]) * 0.15
+        nation_table.iloc[nation - 1, 1] += nation_table.iloc[nation - 1, 1] * 0.25
         self.round += 1
 
     def is_finished(self):
@@ -42,12 +39,11 @@ class Services:
             if nation_table.iloc[index, 0] < nation_table.iloc[index, 1]:
                 print("감염자수가 인구수보다 증가함에 따라 게임을 종료합니다")
                 self.print_score()
-                exit(0)
             index += 1
-        if self.round > 5:
+
+        if self.round > 4:
             print("5라운드까지 모두 종료되었습니다. 결과를 출력합니다")
             self.print_score()
-            exit(0)
 
     def print_result(self):
         if self.round != 0:
@@ -93,7 +89,14 @@ while True:
               "라운드는 5회 진행하며, 국가 입력이 없거나 0 입력시 랜덤 진행됩니다")
         vaccine_choice = int(input("사용할 백신 선택(1~3) : "))
         nation_choice = list(map(int, input("국가 선택 : ").split()))
-        Service.cure(nation_choice[0], vaccine_choice)
+        nation_choice = nation_choice + [0] * (5 - len(nation_choice))
+        while i < 5:
+            Service.cure(nation_choice[i], vaccine_choice)
+            Service.infection_increase(nation_choice[i])
+            Service.print_result()
+            Service.is_finished()
+            time.sleep(3)
+            i += 1
     elif choice == 4:
         print("게임을 종료합니다")
         break
