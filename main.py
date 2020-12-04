@@ -26,12 +26,13 @@ class Services:
               self.vac_table.iloc[[vaccine - 1]])
         print("=============선택된 국가 정보=============\n",
               self.nation_table.iloc[[nation - 1]])
-        self.nation_table.iloc[nation - 1, 1] *= (1 - self.vac_table.iloc[vaccine - 1, 0] * 0.01)
+        self.nation_table.iloc[nation - 1, 1] = \
+            int(self.nation_table.iloc[nation - 1, 1] * (1 - self.vac_table.iloc[vaccine - 1, 0] * 0.01))
 
     def infection_increase(self, nation):
         index = 0
         while index < 5:
-            self.nation_table.iloc[index, 1] += self.nation_table.iloc[index, 1] * 0.15
+            self.nation_table.iloc[index, 1] += int(self.nation_table.iloc[index, 1] * 0.15)
             index += 1
         self.round += 1
 
@@ -52,11 +53,14 @@ class Services:
     def print_result(self):
         index = 0
         if self.round != 0:
-            print("\n", self.round, '차백신투여 후 감염된 나라에 대한 정보')
+            print("============================================")
+            print(self.round, '차백신투여 후 감염된 나라에 대한 정보')
             print("============================================")
             while index < 5:
                 if self.nation_table.iloc[index, 1] == 0:
-                    print("완치된 국가 : ", self.nation_ind[index])
+                    if index == 0:
+                        print("------------완치된 국가 정보------------")
+                    print(self.nation_table.iloc[[index]])
                 index += 1
         print("========국가 목록=========\n", self.nation_table, "\n")
 
@@ -69,6 +73,7 @@ class Services:
     def shuffle(self):
         self.nation_table = self.nation_table.sample(frac=1)
         self.vac_table = self.vac_table.sample(frac=1)
+
 
 while True:
     print('''
