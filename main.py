@@ -5,6 +5,7 @@ nation_col = ['인구 수', '감염자 수']
 nation_ind = ['1. 한국', '2. 중국', '3. 일본', '4. 미국', '5. 독일']
 nation_con = [[1500, 300], [3000, 800], [2000, 500], [2500, 750], [2200, 1000]]
 nation_table = pd.DataFrame(nation_con, columns=nation_col, index=nation_ind)
+nation_table.con.astype(int)
 
 vac_col = ['백신치료율(단위 %)']
 vac_ind = ['백신 1', '백신 2', '백신 3']
@@ -28,7 +29,12 @@ class Services:
         nation_table.iloc[nation - 1, 1] *= (1 - vac_table.iloc[vaccine - 1, 0] * 0.01)
 
     def infection_increase(self, nation):
-        nation_table.iloc[nation - 1, 1] += nation_table.iloc[nation - 1, 1] * 0.25
+        index = 0
+        while index < 5:
+            if nation == index:
+                continue
+            nation_table.iloc[index, 1] += nation_table.iloc[index, 1] * 0.25
+            index += 1
         self.round += 1
 
     def is_finished(self):
@@ -85,13 +91,13 @@ while True:
         time.sleep(5)
     elif choice == 3:
         print("사용할 백신(1~3)과 백신을 적용할 국가(1~5)의 번호를 입력하세요\n"
-              "라운드는 5회 진행하며, 국가 입력이 없거나 0 입력시 랜덤 진행됩니다")
+              "라운드는 5회 진행합니다.")
         Service.print_vac()
         Service.print_result()
         vaccine_choice = int(input("사용할 백신 선택(1~3) : "))
-        nation_choice = list(map(int, input("국가 선택 : ").split()))
+        nation_choice = list(map(int, input("국가 선택(0또는 미입력시 랜덤) : ").split()))
         nation_choice = nation_choice + [0] * (5 - len(nation_choice))
-        while i < 5:
+        while True:
             Service.cure(nation_choice[i], vaccine_choice)
             Service.infection_increase(nation_choice[i])
             Service.print_result()
