@@ -28,7 +28,7 @@ class Services:
               self.vac_table.iloc[[vaccine - 1]])
         print("=============선택된 국가 정보=============\n",
               self.nation_table.iloc[[nation - 1]])
-        self.cured += int(self.nation_table.iloc[nation - 1, 1] * (1 - self.vac_table.iloc[vaccine - 1, 0] * 0.01))
+        self.cured += int((self.nation_table.iloc[nation - 1, 1] * (self.vac_table.iloc[vaccine - 1, 0] * 0.01)))
         self.nation_table.iloc[nation - 1, 1] = \
             int(self.nation_table.iloc[nation - 1, 1] * (1 - self.vac_table.iloc[vaccine - 1, 0] * 0.01))
 
@@ -38,8 +38,8 @@ class Services:
             if nation == inf_index:
                 inf_index += 1
                 continue
-            self.nation_table.iloc[inf_index, 1] += int(self.nation_table.iloc[inf_index, 1] * 0.15)
             self.add_infection += int(self.nation_table.iloc[inf_index, 1] * 0.15)
+            self.nation_table.iloc[inf_index, 1] += int(self.nation_table.iloc[inf_index, 1] * 0.15)
             inf_index += 1
         self.round += 1
 
@@ -69,20 +69,32 @@ class Services:
                 if self.nation_table.iloc[pr_index, 1] == 0:
                     print(self.nation_table.iloc[[pr_index]])
                 pr_index += 1
-        print("========국가 목록=========\n", self.nation_table, "\n")
+        print("========국가 목록=========")
+        print(self.nation_table)
 
     def print_score(self):
-        score_index = 0
+        compl_cured = 0
+        ind = 0
+        while ind < 5:
+            if self.nation_table.iloc[ind, 1] == 0:
+                compl_cured += 1
+            if compl_cured == 5:
+                print('''===========================================
+                                 모든 국가가 완치되었습니다!!
+                         ===========================================''')
+            ind += 1
         print("=======최종 스코어=======")
         print("치유된 사람 수 ==> ", self.cured, "명")
         print("추가 감염자 수 ==> ", self.add_infection, "명")
+        print("치유된 국가 수 ==> ", compl_cured)
         final_score = self.nation_table.sort_values(by='감염자 수', ascending=True)
-        print(final_score)
+        print(final_score.iloc[0:5])
         print("========출력 종료========")
 
     def shuffle(self):
         self.nation_table = self.nation_table.sample(frac=1)
-        self.vac_table = self.vac_table.sample(frac=1)
+        random.shuffle(self.vac_con)
+        self.vac_table = pd.DataFrame(self.vac_con, columns=self.vac_col, index=self.vac_ind)
 
 
 while True:
@@ -120,9 +132,9 @@ while True:
             ch = Service.is_finished()
             if ch:
                 time.sleep(3)
-                break
+                exit(0)
             vaccine_choice = random.randint(1, 3)
-            while True:
+            while index < 6:
                 nation_choice = random.randint(1, 5)
                 if Service.nation_table.iloc[index, 1] != 0:
                     break
