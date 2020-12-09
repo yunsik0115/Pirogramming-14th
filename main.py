@@ -32,12 +32,9 @@ class Services:
         self.nation_table.iloc[nation - 1, 1] = \
             int(self.nation_table.iloc[nation - 1, 1] * (1 - self.vac_table.iloc[vaccine - 1, 0] * 0.01))
 
-    def infection_increase(self, nation):
+    def infection_increase(self):
         inf_index = 0
         while inf_index < 5:
-            if nation == inf_index:
-                inf_index += 1
-                continue
             self.add_infection += int(self.nation_table.iloc[inf_index, 1] * 0.15)
             self.nation_table.iloc[inf_index, 1] += int(self.nation_table.iloc[inf_index, 1] * 0.15)
             inf_index += 1
@@ -53,7 +50,7 @@ class Services:
             is_index += 1
 
         if self.round > 4:
-            print("5라운드까지 모두 종료되었습니다. 결과를 출력합니다")
+            print("\n\n\n5라운드까지 모두 종료되었습니다. 결과를 출력합니다")
             self.print_score()
             return True
 
@@ -61,7 +58,7 @@ class Services:
         if self.round != 0:
             pr_index = 0
             print("============================================")
-            print(self.round, '차백신투여 후 감염된 나라에 대한 정보')
+            print(" ", self.round, '차백신투여 후 감염된 나라에 대한 정보')
             print("============================================")
             while pr_index < 5:
                 if pr_index == 0:
@@ -69,8 +66,8 @@ class Services:
                 if self.nation_table.iloc[pr_index, 1] == 0:
                     print(self.nation_table.iloc[[pr_index]])
                 pr_index += 1
-        print("========국가 목록=========")
-        print(self.nation_table)
+        print("========감염 국가 목록=========")
+        print(self.nation_table[(self.nation_table['감염자 수'] >= 1)])
 
     def print_score(self):
         compl_cured = 0
@@ -84,6 +81,8 @@ class Services:
                          ===========================================''')
             ind += 1
         print("=======최종 스코어=======")
+        print("-----------치유된 국가 목록-----------")
+        print(self.nation_table[self.nation_table['감염자 수'] == 0])
         print("치유된 사람 수 ==> ", self.cured, "명")
         print("추가 감염자 수 ==> ", self.add_infection, "명")
         print("치유된 국가 수 ==> ", compl_cured)
@@ -127,20 +126,18 @@ while True:
         nation_choice = int(input("적용할 국가 선택(1~5) : "))
         while True:
             Service.cure(nation_choice, vaccine_choice)
-            Service.infection_increase(nation_choice)
+            Service.infection_increase()
             Service.print_result()
             ch = Service.is_finished()
+            Service.shuffle()
             if ch:
                 time.sleep(3)
                 exit(0)
             vaccine_choice = random.randint(1, 3)
-            while index < 6:
+            while True:
                 nation_choice = random.randint(1, 5)
-                if Service.nation_table.iloc[index, 1] != 0:
+                if Service.nation_table.iloc[nation_choice - 1, 1] != 0:
                     break
-                index += 1
-            Service.shuffle()
-            time.sleep(3)
     elif choice == 4:
         print("게임을 종료합니다")
-        break
+        exit(0)
