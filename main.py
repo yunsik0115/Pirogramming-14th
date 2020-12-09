@@ -138,6 +138,7 @@ while True:
                 nation_choice = random.randint(1, 5)
                 if Service.nation_table.iloc[nation_choice - 1, 1] != 0:
                     break
+            time.sleep(2)
     elif choice == 4:
         print("게임을 종료합니다")
         exit(0)
