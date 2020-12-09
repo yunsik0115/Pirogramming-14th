@@ -1,5 +1,4 @@
 import pandas as pd
-import numpy as np
 import random
 import time
 
@@ -16,6 +15,9 @@ class Services:
     vac_table = pd.DataFrame(vac_con, columns=vac_col, index=vac_ind)
     round = 0
 
+    cured = 0
+    add_infection = 0
+
     def print_vac(self):
         print("========백신 목록=========")
         print(self.vac_table)
@@ -26,24 +28,29 @@ class Services:
               self.vac_table.iloc[[vaccine - 1]])
         print("=============선택된 국가 정보=============\n",
               self.nation_table.iloc[[nation - 1]])
+        self.cured += int(self.nation_table.iloc[nation - 1, 1] * (1 - self.vac_table.iloc[vaccine - 1, 0] * 0.01))
         self.nation_table.iloc[nation - 1, 1] = \
             int(self.nation_table.iloc[nation - 1, 1] * (1 - self.vac_table.iloc[vaccine - 1, 0] * 0.01))
 
     def infection_increase(self, nation):
-        index = 0
-        while index < 5:
-            self.nation_table.iloc[index, 1] += int(self.nation_table.iloc[index, 1] * 0.15)
-            index += 1
+        inf_index = 0
+        while inf_index < 5:
+            if nation == inf_index:
+                inf_index += 1
+                continue
+            self.nation_table.iloc[inf_index, 1] += int(self.nation_table.iloc[inf_index, 1] * 0.15)
+            self.add_infection += int(self.nation_table.iloc[inf_index, 1] * 0.15)
+            inf_index += 1
         self.round += 1
 
     def is_finished(self):
-        index = 0
-        while index < 5:
-            if self.nation_table.iloc[index, 0] < self.nation_table.iloc[index, 1]:
+        is_index = 0
+        while is_index < 5:
+            if self.nation_table.iloc[is_index, 0] < self.nation_table.iloc[is_index, 1]:
                 print("감염자수가 인구수보다 증가함에 따라 게임을 종료합니다")
                 self.print_score()
                 return True
-            index += 1
+            is_index += 1
 
         if self.round > 4:
             print("5라운드까지 모두 종료되었습니다. 결과를 출력합니다")
@@ -51,21 +58,24 @@ class Services:
             return True
 
     def print_result(self):
-        index = 0
         if self.round != 0:
+            pr_index = 0
             print("============================================")
             print(self.round, '차백신투여 후 감염된 나라에 대한 정보')
             print("============================================")
-            while index < 5:
-                if self.nation_table.iloc[index, 1] == 0:
-                    if index == 0:
-                        print("------------완치된 국가 정보------------")
-                    print(self.nation_table.iloc[[index]])
-                index += 1
+            while pr_index < 5:
+                if pr_index == 0:
+                    print("------------완치된 국가 정보------------")
+                if self.nation_table.iloc[pr_index, 1] == 0:
+                    print(self.nation_table.iloc[[pr_index]])
+                pr_index += 1
         print("========국가 목록=========\n", self.nation_table, "\n")
 
     def print_score(self):
+        score_index = 0
         print("=======최종 스코어=======")
+        print("치유된 사람 수 ==> ", self.cured, "명")
+        print("추가 감염자 수 ==> ", self.add_infection, "명")
         final_score = self.nation_table.sort_values(by='감염자 수', ascending=True)
         print(final_score)
         print("========출력 종료========")
@@ -77,9 +87,9 @@ class Services:
 
 while True:
     print('''
-    -------------------
+    ----------------------
        코로나 종식 게임   
-    -------------------
+    ----------------------
     1. 백신 정보
     2. 감염된 국가 정보
     3. 게임 시작
@@ -88,6 +98,7 @@ while True:
     Service = Services()
     choice = int(input())
     i = 0
+    index = 0
 
     if choice == 1:
         Service.print_vac()
@@ -111,7 +122,11 @@ while True:
                 time.sleep(3)
                 break
             vaccine_choice = random.randint(1, 3)
-            nation_choice = random.randint(1, 5)
+            while True:
+                nation_choice = random.randint(1, 5)
+                if Service.nation_table.iloc[index, 1] != 0:
+                    break
+                index += 1
             Service.shuffle()
             time.sleep(3)
     elif choice == 4:
