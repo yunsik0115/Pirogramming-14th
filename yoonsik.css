@@ -1,0 +1,205 @@
+.container_12 #header .section1 .grid_6:nth-child(2) a {
+  margin: 10px 5px 10px 5px;
+  padding: 5px 10px 5px 10px;
+  border: 1px solid;
+  border-color: grey;
+  border-radius: 4px;
+}
+
+.container_12 #header .section1 .grid_6:nth-child(2) a:hover {
+  margin: 10px 5px 10px 5px;
+  padding: 5px 10px 5px 10px;
+  border: 1px solid;
+  border-color: #00a6eb;
+  color: #00a6eb;
+  border-radius: 4px;
+}
+
+#header .section1 .grid_6 .underline {
+  margin: 10px 5px 10px 5px;
+  padding: 5px 10px 5px 10px;
+}
+
+#header .section1 .grid_6:first-child i:hover {
+  color: #00a6eb;
+}
+
+#header .section1 .grid_6:first-child .underline:focus {
+  border-bottom: 1px solid;
+  border-color: #00a6eb;
+  color: #00a6eb;
+}
+
+#header .section1 .grid_6:first-child i {
+  color: #1e5f8d;
+}
+
+#header .section1 .grid_6:last-child i {
+  border-color: grey;
+  color: grey;
+}
+
+#header .section1 .grid_6 i:hover {
+  border-color: #00a6eb;
+  color: #00a6eb;
+}
+
+#header .section1 .grid_6 .download {
+  background-color: #00a6eb;
+  color: white;
+}
+
+#header .section1 .download:hover {
+  background-color: #00bfff;
+  color: white;
+}
+
+#about .section1 i {
+  color: #00bfff;
+}
+/*
+#services .section1 .grid_12:nth-child(2) {
+  padding: 0 0 0 300px;
+}
+*/
+
+#services .section2 div {
+  transition-duration: 1s;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  width: 230px;
+  height: 200px;
+  padding: 20px 0 0 0;
+  border: 10px solid #ffffff;
+  box-shadow: 0 5px 10px rgb(63, 62, 62);
+  background: #ffffff;
+}
+/*
+#services .section2 {
+  padding: 0 0 0 300px;
+}
+*/
+
+#services .section2 i {
+  padding: 0 0 10px 20px;
+  color: #00a6eb;
+  font-size: 2em;
+}
+
+#services .section2 div:hover {
+  margin-top: 1%;
+  margin-bottom: 3%;
+  width: 230px;
+  height: 200px;
+}
+
+#services .section2 .row1 {
+  color: #1e5f8d;
+  font-size: 1.5em;
+  font-weight: bold;
+  padding: 0 0 10px 15px;
+}
+
+#services .section2 .row2 {
+  padding: 10px 0px 0px 10px;
+}
+
+#services .section2 div:hover .row1 {
+  color: #00bfff;
+}
+
+#call_to_action .button {
+  border-color: white;
+  color: white;
+}
+
+#call_to_action .button:active {
+  transition-duration: 2s;
+  background-color: #00bfff;
+  color: white;
+  opacity: 0;
+}
+
+#portpolio .grid_12 button {
+  background-color: transparent;
+  border: none;
+  color: grey;
+}
+
+#portpolio .grid_12 button:hover {
+  transition-duration: 1s;
+  color: white;
+  border: none;
+  background-color: #00a6eb;
+}
+
+#portpolio .grid_12 button:focus {
+  transition-duration: 2s;
+  color: white;
+  border: none;
+  background-color: #00a6eb;
+}
+
+#team #section2 .sns li {
+  float: left;
+  margin: 10px 10px 10px 0;
+}
+
+#team #section2 .sns li {
+  border: 1px solid;
+  width: 25px;
+  height: 25px;
+  border-radius: 25px;
+  text-align: center;
+  background-color: rgb(187, 176, 176);
+}
+
+#team #section2 .sns li:hover {
+  border: 1px solid;
+  width: 25px;
+  height: 25px;
+  border-radius: 25px;
+  text-align: center;
+  background-color: #00bfff;
+}
+
+#team #section2 .sns i {
+  color: rgb(27, 32, 105);
+}
+
+#team #section2 .sns i:hover {
+  color: white;
+}
+
+#link a:last-child {
+  color: white;
+}
+
+#pricing #section2 .grid_4 i {
+  color: green;
+}
+
+#pricing #section2 .grid_4 li {
+  color: grey;
+}
+
+#footer .grid_3 i {
+  color: #00a6eb;
+}
+
+#footer .grid_3 a {
+  color: gray;
+}
+
+#faq .grid_12 p {
+  color: #4a4e52;
+  padding-bottom: 50px;
+}
+
+#faq .faq_lst .far :hover {
+  color: #47b2e4;
+}
+
+#faq .faq_lst .arrow p {
+  color: #4a4e52;
+}
