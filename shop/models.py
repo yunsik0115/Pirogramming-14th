@@ -1,4 +1,6 @@
 from django.db import models
+from django.urls import reverse
+from askcompany.utils import uuid_upload_to
 
 class Item(models.Model):
     name = models.CharField(max_length=100, validators=[]) #길이 제한 있음, validators로 valid 기준
@@ -10,3 +12,7 @@ class Item(models.Model):
     
     def __str__(self):
         return f'<{self.pk}> {self.name}'
+
+    def get_absolute_url(self):
+        return reverse('shop:item_detail', args=[self.pk])
+    
