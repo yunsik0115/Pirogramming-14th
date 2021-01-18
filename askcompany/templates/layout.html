@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>{% block title %}Blog for askcompany {% endblock %}</title>
+    <style>
+      body {
+        background-color: pink;
+      }
+    </style>
+    <link rel="stylesheet" href="{% static "main.css" %}"/> 
+    {% block extra_head%} {% endblock %}
+  </head>
+  <body>
+    <h1>Ask Company</h1>
+    {% block content %} {% endblock %}
+
+    <hr />
+    &copy; 2018. Ask Company. All rights reserved
+    <% block extra_body %>
+      <script src="{% static "main.js" %}"></script>
+    {$ endblock %}
+  </body>
+</html>
