@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +26,7 @@ SECRET_KEY = '6t!qstskly(s1x_e#f%4^i6jgc=e^=c)!^dw)m!vonuz1x-une'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -60,7 +61,9 @@ ROOT_URLCONF = 'askcompany.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'askcompany', 'templates'),
+            ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -126,3 +129,35 @@ USE_TZ = True
 STATIC_URL = '/static/'
 INTERNAL_IPS = ['127.0.0.1',
                 ]
+
+LOGGING = { 
+    'version': 1,
+    'disable_existing_loggers': False, 
+    'filters': {
+        'require_debug_true': {
+        '()': 'django.utils.log.RequireDebugTrue',
+        }, 
+    }, 
+    'handlers': { 
+        'console': {
+            'level': 'DEBUG',
+            'filters': ['require_debug_true'], 'class': 'logging.StreamHandler',
+        }, 
+        'write_to_file': {
+            'level': 'DEBUG',
+            'filters': ['require_debug_true'], 
+            'class': 'logging.FileHandler', 
+            'filename': 'db.log',
+        }, 
+    },
+    'loggers': { 
+        'django.db.backends': {
+            'handlers': ['console', 'write_to_file'],
+            'level': 'DEBUG',
+        },
+        'shop': {
+            'handlers': ['console'],
+            'level' : 'DEBUG',
+        },
+    }
+}
