@@ -1,6 +1,6 @@
 import logging
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Item
 
 logger = logging.getLogger(__name__) # __name__ => shop 내부의 뷰에 있다.
@@ -22,3 +22,9 @@ def item_list(request):
         'item_list' : qs,
         'q' : q,
     })
+def item_detail(request, pk):
+    item = get_object_or_404(Item, pk=pk)
+    return render(request, 'shop/item_detail.html', {
+        'item':item
+    })
+    
