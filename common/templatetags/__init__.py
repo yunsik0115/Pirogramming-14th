@@ -1,0 +1,1 @@
+from fresh_static import FreshStaticNode
