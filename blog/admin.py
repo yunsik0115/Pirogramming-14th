@@ -6,6 +6,6 @@ class PostAdmin(admin.ModelAdmin):
     list_display = ('id','title','modified_at')
     list_filter = ('modified_at',)
     search_fields = ('title', 'content')
-    prepopulated_fields = {'slug':('title',)}
+    prepopulated_fields = {'slug': ('title',)}
 
 # Register your models here.
