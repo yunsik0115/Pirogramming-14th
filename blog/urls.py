@@ -1,11 +1,15 @@
 from django.urls import path, re_path
 from blog import views
+from . import models
+from . import converters
+
 
 app_name = 'blog'
 
 urlpatterns = [
-    path('', views.PostLV.as_view(), name='post_detail'),
-    re_path(r'^post/(?P<slug>[-\w]+)/$', views.PostDV.as_view(), name='post_detail'),
+    path('', views.PostLV.as_view(), name='index'),
+    path('post/', views.PostLV.as_view(), name='post_list'),
+    path('<slug:slug>/', views.PostDV.as_view(), name='post_detail'),
     path('archive/', views.PostAV.as_view(), name='post_archive'),
     path('archive/<int:year>/', views.PostYAV.as_view(), name='post_year_archive'),
     path('archive/<int:year>/<str:month>/', views.PostMAV.as_view(), name='post_month_archive'),
