@@ -3,6 +3,7 @@ from django.views.generic import ListView, DetailView
 from django.views.generic.dates import ArchiveIndexView, YearArchiveView, MonthArchiveView
 from django.views.generic.dates import DayArchiveView, TodayArchiveView
 
+
 from blog.models import Post
 
 class PostLV(ListView):
@@ -34,5 +35,7 @@ class PostDAV(DayArchiveView):
 class PostTAV(TodayArchiveView):
     model = Post
     date_field = 'modified_at'
+
+
 
 # Create your views here.
