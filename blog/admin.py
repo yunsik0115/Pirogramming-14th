@@ -8,4 +8,8 @@ class PostAdmin(admin.ModelAdmin):
     search_fields = ('title', 'content')
     prepopulated_fields = {'slug': ('title',)}
 
-# Register your models here.
+    def get_queryset(self, request):
+        return super().get_queryset(request).prefetch_related('tags')
+
+    def tag_list(self,obj):
+        return ', '.join(o.name for o in obj.tags.all())
