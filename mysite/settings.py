@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'taggit',
     'taggit_templatetags2',
     'photo',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
@@ -137,3 +138,6 @@ TAGGIT_LIMIT = 50
 
 DISQUS_SHORTNAME = 'yunsik-web-programming'
 DISQUS_MY_DOMAIN = "127.0.0.1:8000"
+
+#LOGIN_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL='/'
