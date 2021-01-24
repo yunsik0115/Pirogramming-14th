@@ -13,4 +13,6 @@ class AlbumAdmin(admin.ModelAdmin):
 class PhotoAdmin(admin.ModelAdmin):
     list_display = ('id', 'title', 'uploaded_at')
 
+
+
 # Register your models here.
