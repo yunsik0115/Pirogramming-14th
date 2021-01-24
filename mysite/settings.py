@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'bookmark',# added after bookmark app creation
     'blog',
     'taggit',
-    'taggit_templatetags2'
+    'taggit_templatetags2',
+    'photo',
 ]
 
 MIDDLEWARE = [
