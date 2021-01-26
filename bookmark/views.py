@@ -24,7 +24,7 @@ class BookmarkChangeLV(LoginRequiredMixin, ListView):
     template_name = 'bookmark/bookmark_change_list.html'
 
     def get_queryset(self):
-        return Bookmark.objects.filter(owner=self.request.owner)
+        return Bookmark.objects.filter(owner=self.request.user)
 
 class BookmarkUpdateView(OwnerOnlyMixin, UpdateView):
     model = Bookmark
