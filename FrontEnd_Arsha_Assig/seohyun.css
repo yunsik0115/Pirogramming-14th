@@ -1,0 +1,136 @@
+
+
+input[id*="answer"] {
+    display:none;
+}
+
+input[id*="answer"] + label {
+    display:block;
+    padding:20px;
+    cursor: pointer;
+}
+
+input[id*="answer"] + label + div {
+    max-height: 0;
+    transition: all .8s;
+    overflow:hidden;   
+}
+
+input[id*="answer"] + label + div p {
+    display: inline-block;
+    padding: 20px;
+}
+
+input[id*="answer"]:checked + label + div {
+    max-height:100px;
+}
+
+input[id*="answer"] + label .arrow {
+    position:absolute;
+    border: solid gray;
+    right:50px;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+
+input[id*="answer"]:checked + label .arrow {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+}
+
+
+
+input[id*="gnb"] {
+    display:none;
+}
+
+input[id*="gnb"] + label {
+    display:block;
+    padding:20px;
+    cursor: pointer;
+}
+
+input[id*="gnb"] + label + div {
+    max-height: 0;
+    transition: all .8s;
+    overflow:hidden;   
+}
+
+input[id*="gnb"] + label + div p {
+    display: inline-block;
+    padding: 20px;
+}
+
+input[id*="gnb"]:checked + label + div {
+    max-height:300px;
+}
+
+input[id*="gnb"] + label i {
+    position:absolute;
+    border: solid gray;
+    right:800px;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+
+input[id*="gnb"]:checked + label i {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+}
+
+
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+/*
+#home, #about, #services, #portpolio, #team, #contact {
+    padding-top: 120px;
+}
+*/
+
+/*
+#dropdown {
+    position: relative;
+    display: inline-block;
+    background-color: red;
+}
+*/
+
+.dropbox {
+    position: absolute;
+    overflow: hidden;
+    background-color: blue;
+    /*transition: .6s ease-out;*/
+    width: 1oopx;
+    height: 0;
+}
+
+#header .section2 .grid_10 ul a #drops:hover {
+    
+    list-style: none;
+    height: 200px;
+    
+    background-color: blue;
+    /*transition: .6s ease-out;*/
+ 
+
+
+}
+
+
+
+/*
+
+#drops span:hover .dropbox {
+    display: block;
+    height: 200px;
+}

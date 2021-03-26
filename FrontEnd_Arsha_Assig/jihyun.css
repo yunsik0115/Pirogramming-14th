@@ -1,0 +1,369 @@
+/*hover*/
+​
+/*header*/
+
+#header .section2 .grid_10 ul li {
+  float: left;
+  display: block;
+  position: relative;
+  color: #ffffff;
+  transition: 0.3s;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+}
+
+#header .section2 .grid_10 ul a li:hover {
+  color: #00a6eb;
+}
+
+#header .section2 .grid_10 .get_started {
+  margin-left: 25px;
+  color: #ffffff;
+  border-radius: 50px;
+  padding: 0 20px;
+  white-space: nowrap;
+  transition: 0.3s;
+  font-size: 14px;
+  display: inline-block;
+  border: 2px solid #00a6eb;
+  font-weight: 600;
+}
+
+#header .section2 .grid_10 .get_started:hover {
+  background: #31a9e1;
+  color: #fff;
+}
+
+/* Home*/
+#link a:first-child {
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 10px 28px 11px 28px;
+  border-radius: 50px;
+  transition: 0.5s;
+  margin: 10px 0 0 0;
+  color: #fff;
+  background: #47b2e4;
+}
+
+#link a:first-child:hover {
+  background: #209dd8;
+}
+
+​#link a:last-child {
+  color: #fff;
+  font-size: 32px;
+  position: absolute;
+  left: 0;
+  top: 7px;
+  transition: 0.3s;
+}
+
+#link a:last-child:hover {
+  color: #47b2e4;
+}
+
+#home .section1 .grid_6 .ani_img {
+  animation: up-down 2s ease-in-out infinite alternate-reverse both;
+}
+
+​@media (max-width: 991px) {
+  #home .section1 .grid_6 .ani_img {
+    -webkit-animation: none;
+    animation: none;
+  }
+}
+
+/*client*/
+#home .section2 .grid_2 {
+  max-width: 45%;
+  transition: all 0.4s ease-in-out;
+  display: inline-block;
+  padding: 15px 0;
+  -webkit-filter: grayscale(100);
+  filter: grayscale(100);
+}
+
+#home .section2 .grid_2:hover {
+  -webkit-filter: none;
+  filter: none;
+  transform: scale(1.1);
+}
+
+/*About Us*/
+.learn-more {
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 12px 32px;
+  border-radius: 4px;
+  transition: 0.3s;
+  line-height: 1;
+  color: #47b2e4;
+  -webkit-animation-delay: 0.8s;
+  animation-delay: 0.8s;
+  margin-top: 6px;
+  border: 2px solid #47b2e4;
+}
+
+.learn-more:hover {
+  background: #47b2e4;
+  color: #fff;
+  text-decoration: none;
+}
+
+​
+
+/* about us 다음페이지*/
+#header1 .first {
+  color: #343a40;
+}
+
+​ #header1 .first :hover {
+  color: #47b2e4;
+}
+
+​ #header2 .second {
+  color: #343a40;
+}
+
+​ #header2 .second :hover {
+  color: #47b2e4;
+}
+
+​ #header3 .third {
+  color: #343a40;
+}
+
+​ #header3 .third :hover {
+  color: #47b2e4;
+}
+
+​
+
+/*skill - prgression bar*/
+#grid_12.progress {
+  height: 50px;
+  display: block;
+  background: none;
+}
+
+#grid_12 .progress .left {
+  padding: 10px 0;
+  margin: 0 0 6px 0;
+  text-transform: uppercase;
+  display: block;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  color: #37517e;
+}
+
+#grid_12 .progress .left .right {
+  float: right;
+  font-style: normal;
+}
+
+#grid_12 .progress-bar-wrap {
+  background: #e8edf5;
+}
+
+#grid_12 .progress-bar {
+  width: 1px;
+  height: 10px;
+  transition: 0.9s;
+  background-color: #4668a2;
+}
+
+​
+
+/*services*/
+​ #section2 .grid_6 .row1 {
+  color: #37517e;
+  transition: ease-in-out 0.3s;
+}
+
+#section2 .grid_6 .row1:hover p {
+  color: #47b2e4;
+}
+
+​ #section2 .grid_6 {
+  transition-duration: 1s;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+​ #section2 .grid_6:hover {
+  margin-top: 1%;
+  margin-bottom: 3%;
+}
+
+/*call to action*/
+#call_to_action .button {
+  margin-top: 20px;
+  margin-left: 25px;
+  color: #ffffff;
+  border-radius: 50px;
+  padding: 15px 60px;
+  white-space: nowrap;
+  transition: 0.3s;
+  font-size: 15px;
+  display: inline-block;
+  border: 2px solid #ffffff;
+  font-weight: 600;
+  background-color: transparent;
+}
+
+#call_to_action .button:hover {
+  color: #ffffff;
+  background-color: #00a6eb;
+  border: 2px solid #00a6eb;
+}
+
+#call_to_action .grid_8 p {
+  color: #ffffff;
+  font-size: 15px;
+}
+
+#call_to_action .grid_8 span {
+  color: #ffffff;
+  font-size: 25px;
+  font-weight: 600;
+}
+
+#pricing .grid_12 p {
+  color: #4a4e52;
+  padding-bottom: 50px;
+}
+
+#pricing .grid_4 {
+  margin: 20px;
+  width: 270px;
+  height: 400px;
+  border: 10px solid #ffffff;
+  box-shadow: 0 5px 10px rgb(63, 62, 62);
+  background: #ffffff;
+}
+
+#pricing .grid_4 {
+  color: #37517e;
+  font-size: 15px;
+  padding-bottom: 20px;
+  font-weight: 1000px;
+}
+
+#pricing .grid_4 li {
+  color: #37517e;
+  font-size: 15px;
+  padding-bottom: 30px;
+  font-weight: 1000px;
+}
+
+#pricing .grid_4 .money {
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  font-size: 30px;
+  padding: 10px 0;
+  font-weight: 1000px;
+}
+
+#pricing .grid_4 .duration {
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  color: #00a6eb;
+  font-size: 13px;
+  padding-bottom: 20px;
+  font-weight: 1000px;
+}
+
+#contact .grid_12 {
+  color: #4a4e52;
+  font-size: 14px;
+  padding-bottom: 10px;
+}
+
+#contact .grid_4 ul {
+  margin: 20px;
+  width: 270px;
+  height: 400px;
+  border: 10px solid #ffffff;
+  box-shadow: 0 5px 10px rgb(63, 62, 62);
+  background: #ffffff;
+}
+
+#contact .grid_4 .location {
+  color: #37517e;
+  font-size: 10px;
+  padding-bottom: 20px;
+}
+
+#contact .grid_4 .Email {
+  color: #37517e;
+  font-size: 10px;
+  padding-bottom: 20px;
+}
+
+#contact .grid_4 .Call {
+  color: #37517e;
+  font-size: 10px;
+  padding-bottom: 20px;
+}
+
+#contact .contact2 {
+  color: #4a4e52;
+  margin: 20px;
+  width: 400px;
+  height: 400px;
+  border: 10px solid #ffffff;
+  box-shadow: 0 5px 10px rgb(63, 62, 62);
+  background: #ffffff;
+}
+
+#contact .contact2 .grid_8 {
+  padding: 10px;
+  color: #4a4e52;
+  font-size: 14px;
+  padding-bottom: 10px;
+}
+
+#contact .contact2 .grid_8 input {
+  margin: 5px;
+  width: 300px;
+  height: 40px;
+}
+
+#footer h6 {
+  color: #37517e;
+  font-size: 20px;
+  padding-bottom: 10px;
+}
+
+#footer p {
+  color: #4a4e52;
+  font-size: 11px;
+  padding-bottom: 10px;
+}
+
+#footer p strong {
+  color: #4a4e52;
+}
+
+#footer .grid_3 h3 {
+  color: #37517e;
+  font-size: 15px;
+  padding-bottom: 20px;
+}
+
+#footer .grid_3 a {
+  color: #4a4e52;
+}
+
+#footer .grid_3 li {
+  padding-bottom: 20px;
+  font-size: 11px;
+}
