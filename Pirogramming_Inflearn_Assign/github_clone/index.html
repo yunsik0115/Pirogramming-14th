@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Github: Where the World builds Software</title>
+    <style>
+        body {
+            font-family:'Times New Roman', Times, serif;
+            margin:0;
+        }
+
+        a {text-decoration:none}
+
+        #header {
+            width : 100rem;
+            
+        }
+
+        #header_nav {
+            width:100%;
+            background-color:black;
+            overflow:hidden;
+            display:inline-block;
+            margin:0 0 0 19rem;
+        }
+
+        #header_nav div{
+            display:inline-block;
+        }
+
+        #header_nav li{
+            font-size:0.9em;
+            color:#ffffff;
+            margin-right:20px;
+            list-style:none;
+            float:left;
+        }
+
+        #header_nav .header_icon{
+            margin : 10px 10px 0 0;
+            float:left;
+        }
+
+        #header_nav .search .search_txt{
+            border-radius : 15px;
+            opacity : 0.5;
+            margin : 0px 0px 0px 400px;
+            display:inline-block;
+        }
+
+        #under{
+            color:white;
+        }
+
+
+        #content{
+            width:100rem;
+            height:100rem;
+        }
+
+        #content div{
+            width : 30%;
+            height : 30%;
+        }
+
+
+        #content .left{
+            float:left;
+            margin: 100px 0 0 300px;
+            width: 30rem;
+            height: 30rem;
+        }
+
+        #content .left .h1_name{
+            color:white;
+            font-size:4em;
+        }
+
+        #Account_cre{
+            border : 1px solid;
+            border-color : white;
+            background-color:white;
+            display:inline-block;
+            margin : 100px 0 0 150px;
+            padding : 10px 10px 10px 10px;
+        }
+
+        #Account_cre input{
+            width: 28rem;
+            height:1.5rem;
+            margin:10px 0 10px 10px;
+        }
+
+        #Account_cre .pwd-req{
+            font-size:15px;
+            width:28rem;
+            height:1.5rem;
+            margin : 0 auto;
+        }
+
+        #Account_cre .disclaimer{
+            font-size:15px;
+            width:28rem;
+            height:1.5rem;
+            margin : 0 auto;
+        }
+
+
+    </style>
+    <link href ="fontawesome-free-5.15.1-web/css/all.css" rel="stylesheet">
+
+
+</head>
+
+<body bgcolor="black" vlink="white" alink="white">
+    <div id="header">
+        <div id="header_nav">
+            <div class="header_icon">
+                <img src="GitHub-Mark.png" style="width:40px; height:40px;">
+            </div>
+            <ul>
+                <li><a href="#">Why Github? <i class="fas fa-chevron-down"></i></a></li>
+                <li>Team</li>
+                <li>Enterprise</li>
+                <li><a href="#">Explore <i class="fas fa-chevron-down"></i></a></li>
+                <li>Marketplace</li>
+                <li><a href="#">Pricing <i class="fas fa-chevron-down"></i></a></li>
+            </ul>
+            <div class="search">
+                <input type="text" class="search_txt" placeholder="Search Github">
+                <button type="submit" class="btn_search"><span><i class="fas fa-search" style="color:white;"></i></span></button>
+            </div>   
+            </div>      
+    </div>
+
+        <div id="content">
+            <div class="left">
+                <h1 class = "h1_name">Built for<br/>Developers</h1><br/>
+                <span id="promo" style="color:grey; font-weight:bold; font-size: 1.2em;">Github is a Development platform inspired by the<br/>way you work. From <span id="under">open source&nbsp;</span>to&nbsp;<span id="under">business</span>, you<br/>can host and review code, manage projects, and<br/>build software alongside 50 million developers.</h5>
+            </div>
+            <div id="Account_cre">
+                <form action="#none" method="POST" style="font-weight:bold;">
+                    Username<br><input type="text" name="username"><br/>
+                    Email<br><input type="text" name="usemail"><br/>
+                    Password<br><input type="password" name="pwd"><br/>
+                </form>
+                    <div class="pwd-req">Make sure it's at least 15 characters OR at least 8 characters including a<br/>number and a lowercase letter. <a href="#none" style="color:blue;">Learn more</a>.</div><br/>
+                    <input type="submit" value="Sign up for GitHub" style="background-color:rgb(93, 216, 93); border:none; height:4em; width:29rem; color:white; font-weight: bold;"/><br/>
+                    <div class="disclaimer"> By clicking "Sign up for Github", you agree to our <a href="#" style="color:blue;">Terms of Service</a> and<br/><a href="#" style="color:blue;">Privacy Statement.</a> We'll occasionally send you account related emails.</span>
+            </div>
+        </div>
+</body>
+</html>
